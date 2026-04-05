@@ -15,12 +15,14 @@ except Exception as e:
 
 
 # 3. TAMPILAN SIDEBAR (FOLDER 9 NAGA)
-st.sidebar.title("📁 Folder 9 Naga"
+st.sidebar.title("📁 Folder 9 Naga") 
 menu = st.sidebar.radio("Pilih Dimensi:", [
     "Pusat Kendali", 
     "Log Sistem", 
     "Database Anggota", 
-    "Arsip Makrifat",
+    "Game Makrifat",
+    "niaga & servis", 
+    " gallery member", 
     "Radar Global",
     "Finansial",
     "Konten Kreatif",
