@@ -1,27 +1,34 @@
 import streamlit as st
 from google import genai
 
-# CARA YANG BENAR DAN BERSIH:
-# Kita ambil kunci dari Secrets Streamlit agar aman
+# --- KUNCI PINTU MASUK (KONFIGURASI) ---
+# Kode ini langsung mengambil kunci dari Secrets yang kamu isi tadi
 try:
-    api_key_pusat = st.secrets["AIzaSyCH2yiCqUZoceiJvNo1BycDAfKZPuNGKtw"]
-    client = genai.Client(api_key=api_key_pusat)
+    # Kita buat koneksi 'client' yang memegang kunci API
+    client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 except Exception as e:
-    st.error("Kunci API belum terpasang di Secrets Streamlit.")
+    st.error(f"Gagal Konfigurasi API: {e}")
     st.stop()
 
-st.title("🐉 Nur Makrifat AI Core")
+# --- TAMPILAN SISTEM ---
+st.title("🌐 Imdigital Core System")
+st.write("Sistem Nur Makrifat siap diperintah.")
 
-if prompt := st.chat_input("Perintah Admin..."):
-    st.chat_message("user").markdown(prompt)
-    
+# Input dari Admin Jamhari
+if prompt := st.chat_input("Ketik perintah di sini..."):
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    # --- PROSES BICARA (API CALL) ---
     try:
-        # Menggunakan model terbaru gemini-2.0-flash
+        # Panggil model Gemini 2.0 Flash (paling stabil untuk saat ini)
         response = client.models.generate_content(
             model="gemini-2.0-flash", 
             contents=prompt
         )
-        st.chat_message("assistant").markdown(response.text)
+        
+        with st.chat_message("assistant"):
+            st.markdown(response.text)
+            
     except Exception as e:
-        st.error(f"Terjadi gangguan sinyal: {e}")
-
+        st.error(f"API Error: {e}")
