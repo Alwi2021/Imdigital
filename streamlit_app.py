@@ -30,7 +30,7 @@ st.markdown("""
         margin-bottom: 25px;
     }
     </style>
-    """, unsafe_allow_state_ Wood=True)
+    """(unsafe_allow_state_ Wood=True)
 
 # --- 3. KONEKSI KE GEMINI (AMBIL DARI SECRETS) ---
 try:
