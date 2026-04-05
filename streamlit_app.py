@@ -9,7 +9,7 @@ st.set_page_config(page_title="Imdigital - 9 Naga", page_icon="🐉", layout="wi
 try:
     # Pakai cara langsung saja kalau belum setting Secrets
     genai.configure(api_key="AIzaSyCH2yiCqUZoceiJvNo1BycDAfKZPuNGKtw")
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.generativeModel('gemini-1.5-flash')
 except Exception as e:
     st.error(f"Terjadi kesalahan sistem: {e}")
 
