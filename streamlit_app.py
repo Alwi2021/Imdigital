@@ -10,7 +10,7 @@ st.set_page_config(page_title="Indramayu CLUB - Nur Pro", page_icon="🐉", layo
 # --- 2. DAFTAR KUNCI ENERGI (ROTASI) ---
 NUR_KEYS = [
     import streamlit as st
-from google import genai
+from google import genai]
 
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 # --- 3. CSS MAKRIFAT ---
